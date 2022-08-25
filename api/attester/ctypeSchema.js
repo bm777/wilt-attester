@@ -16,4 +16,4 @@ export function getCtypeSchema() {
     })
 }
 
-console.log(getCtypeSchema())
+// console.log(getCtypeSchema())

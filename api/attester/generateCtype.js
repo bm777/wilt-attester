@@ -46,9 +46,12 @@ export async function ensureStoredCtype() {
 
 }
 
-// ensureStoredCtype()
-//     .catch((e) => {
-//         console.log("Error while checking on chain ctype", e)
-//         process.exit(1)
-//     })
-//     .then(() => process.exit())
+ensureStoredCtype()
+    .catch((e) => {
+        console.log("Error while checking on chain ctype", e)
+        process.exit(1)
+    })
+    .then(() => {
+        console.log("Ctype: ", ctype)
+        process.exit()
+    })
