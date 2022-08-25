@@ -49,12 +49,12 @@ export async function getFullDid(didUri) {
 //         process.exit()
 //     })
 
-getFullDid(env.ATTESTER_DID_URI)
-    .catch((e) => {
-        console.log("Error while retrieving atttester Did", e)
-        process.exit(1)
-    })
-    .then((did) => {
-        console.log('ATTESTER_DID=', did)
-        process.exit()
-    })
+// getFullDid(env.ATTESTER_DID_URI)
+//     .catch((e) => {
+//         console.log("Error while retrieving atttester Did", e)
+//         process.exit(1)
+//     })
+//     .then((did) => {
+//         console.log('ATTESTER_DID=', did)
+//         process.exit()
+//     })
