@@ -2,10 +2,11 @@ import * as Kilt from "@kiltprotocol/sdk-js"
 import { generateKeypairs } from "./generateKeypairs.js"
 import { getIdentity } from "./generateIdentity.js"
 import env from '../../env.json' assert {type: "json"};
+import { get } from "http";
 
 
 export async function createFullDid() {
-    await Kilt.init({address: "wss://peregrine.kilt.io/parachain-public-ws"})
+    await Kilt.init({address: env.WSS_ADDRESS})
     const { api } = await Kilt.connect()
     const mnemonic = env.ATTESTER_MNEMONIC
     console.log(mnemonic)
@@ -31,17 +32,29 @@ export async function createFullDid() {
 }
 
 export async function getFullDid(didUri) {
+    await Kilt.init({address: env.WSS_ADDRESS})
+    // const { api } = await Kilt.connect()
     const onChain = await Kilt.Did.FullDidDetails.fromChainInfo(didUri)
     if (!onChain) throw Error('failed to find on chain did: ${didUri}')
     return onChain
 }
 
- createFullDid()
+//  createFullDid()
+//     .catch((e) => {
+//         console.log("Error while creating atttester Did", e)
+//         process.exit(1)
+//     })
+//     .then((did) => {
+//         console.log('ATTESTER_DID_URI=', did.uri)
+//         process.exit()
+//     })
+
+getFullDid(env.ATTESTER_DID_URI)
     .catch((e) => {
-        console.log("Error while creating atttester Did", e)
+        console.log("Error while retrieving atttester Did", e)
         process.exit(1)
     })
     .then((did) => {
-        console.log('ATTESTER_DID_URI=', did.uri)
+        console.log('ATTESTER_DID=', did)
         process.exit()
     })
