@@ -1,6 +1,6 @@
-# kilt-react-native-template
+# Wilt attester/Verifier Instance
 
-A template for react native projects using KILT with Expo.
+This is an instance of attester and verifier for check-in event ticket at dn22
 
 ## Test
 
