@@ -51,7 +51,7 @@ ensureStoredCtype()
         console.log("Error while checking on chain ctype", e)
         process.exit(1)
     })
-    .then(() => {
+    .then((ctype) => {
         console.log("Ctype: ", ctype)
         process.exit()
     })
