@@ -1,7 +1,7 @@
 import * as Kilt from "@kiltprotocol/sdk-js"
 import { mnemonicGenerate } from "@polkadot/util-crypto"
 
-import { generateKeypairs } from "./generatePeypairs.js"
+import { generateKeypairs } from "./generateKeypairs.js"
 
 import env from "../../env.json" assert {type: "json"}
 
