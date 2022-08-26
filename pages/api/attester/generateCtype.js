@@ -5,15 +5,14 @@ import { getIdentity } from "./generateIdentity.js"
 import { getCtypeSchema } from "./ctypeSchema.js"
 import { getFullDid } from "./generateDid.js"
 
-import { config as envConfig } from 'dotenv'
-// import env from "./env.json" assert {type: "json"}
+import env from "./env.json" assert {type: "json"}
 
 
 export async function ensureStoredCtype() {
     // init
-    await Kilt.init({address: process.env.WSS_ADDRESS})
-    const mnemonic = process.env.ATTESTER_MNEMONIC
-    const did = process.env.ATTESTER_DID_URI
+    await Kilt.init({address: env.WSS_ADDRESS})
+    const mnemonic = env.ATTESTER_MNEMONIC
+    const did = env.ATTESTER_DID_URI
 
     // load identity
     const identity = await getIdentity(mnemonic)
