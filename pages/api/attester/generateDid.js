@@ -1,8 +1,7 @@
 import * as Kilt from "@kiltprotocol/sdk-js"
 import { generateKeypairs } from "./generateKeypairs.js"
 import { getIdentity } from "./generateIdentity.js"
-import env from '../../env.json' assert {type: "json"};
-import { get } from "http";
+import env from './env.json' assert {type: "json"};
 
 
 export async function createFullDid() {

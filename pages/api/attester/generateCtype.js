@@ -5,7 +5,7 @@ import { getIdentity } from "./generateIdentity.js"
 import { getCtypeSchema } from "./ctypeSchema.js"
 import { getFullDid } from "./generateDid.js"
 
-import env from "../../env.json" assert {type: "json"}
+import env from "./env.json" assert {type: "json"}
 
 
 export async function ensureStoredCtype() {

@@ -1,16 +1,6 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/api/attester/attestClaim": "pages/api/attester/attestClaim.js",
-  "/api/attester/ctypeSchema": "pages/api/attester/ctypeSchema.js",
-  "/api/attester/generateCtype": "pages/api/attester/generateCtype.js",
-  "/api/attester/generateDid": "pages/api/attester/generateDid.js",
-  "/api/attester/generateIdentity": "pages/api/attester/generateIdentity.js",
-  "/api/attester/generateKeypairs": "pages/api/attester/generateKeypairs.js",
-  "/api/hello": "pages/api/hello.js",
-  "/did/[id]": "pages/did/[id].html",
-  "/did": "pages/did.html",
-  "/": "pages/index.html",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/did/[id]": "pages/did/[id].js"
 }
