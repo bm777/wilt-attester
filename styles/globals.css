@@ -3,3 +3,8 @@
 @tailwind utilities;
 
 
+@layer base {
+    body {
+      @apply bg-[#0F172A];
+    }
+  }
