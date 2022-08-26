@@ -38,7 +38,7 @@ export default function Content() {
                     )}
                     </div>
                     <div className="flex justify-center">
-                        <p className="text-teal-500 text-xl font-light mt-12">Scan the QR code to {isAttester? "attest": "verify"} your {isAttester? "ticket": "attestation"}.</p>
+                        <p className="text-teal-500 text-xl font-light mt-12">Scan the QR code to {isAttester? "request": "verify"} your {isAttester? "ticket": "attestation"}.</p>
                     </div>
                     <div className="h-[100px]"></div>
                 </div>
