@@ -4,11 +4,13 @@ import env from "./api/attester/env.json" assert {type: "json"}
 import iconMessage from "../public/email.png"
 import Image from 'next/image'
 
+
 export default function Home() {
-    
+
     // the state
     const [isAttester, setIsattester] = useState(true)
     const [did, setDid] = useState("")
+    const [nb, setNb] = useState(0)
 
     // handlers
     function handleClick() {
@@ -16,8 +18,16 @@ export default function Home() {
       const url = getUrl(!isAttester)
       setDid(url)
       setIsattester(!isAttester)
-        
+
     }
+
+    // timer
+    const timer = setTimeout(async () => {
+      const base = "https://wilt-attester.vercel.app"
+      const res = await fetch(base+"/api/attester/"+env.ATTESTER_DID_URI)
+      const tickets = await res.json()
+      setNb(tickets.tickets.length)
+    }, 1000)
 
     // useEffect
     useEffect(() => {
@@ -36,7 +46,7 @@ export default function Home() {
                     <div>
                       <div className="flex justify-end mr-10">
                         <Image src={iconMessage} />
-                        <div className="w-7 h-7 bg-indigo-600 rounded-full flex justify-center text-white font-bold text-lg">{5}</div>
+                        <div className="w-7 h-7 bg-indigo-600 rounded-full flex justify-center text-white font-bold text-lg">{nb}</div>
                       </div>
 
                     </div>
@@ -66,10 +76,10 @@ function getUrl(isAttester){
   const base_url = "https://wilt-attester.vercel.app"
   var url
   if (isAttester){
-    url = base_url+ "/did/attester/"+ env.ATTESTER_DID_URI
+    url = base_url+ "/api/attester/"+ env.ATTESTER_DID_URI
   }
   else{
-    url = base_url+ "/did/verifier/"+ env.ATTESTER_DID_URI
+    url = base_url+ "/api/verifier/"+ env.ATTESTER_DID_URI
   }
   return url
 }
