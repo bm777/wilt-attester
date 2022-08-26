@@ -2,7 +2,7 @@ import env from "./env.json" assert {type: "json"}
 import { MongoClient } from 'mongodb'
 
 export default async function handler(req, res) {
-  const data = {"type": "request", "name": "bayang", "age": 22}
+  const data = {"type": "ticketVerified", "name": "bayang", "age": 22}
 
   // database
   const client = await MongoClient.connect(env.MONGODB_URI)
