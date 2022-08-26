@@ -24,7 +24,7 @@ export default function Home() {
     // timer
     const timer = setTimeout(async () => {
       const base = "https://wilt-attester.vercel.app"
-      const res = await fetch(base+"/api/attester/"+env.ATTESTER_DID_URI)
+      const res = await fetch(base+"/api/attester/requests")
       const tickets = await res.json()
       setNb(tickets.tickets.length)
     }, 1000)
