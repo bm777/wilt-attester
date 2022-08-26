@@ -5,14 +5,15 @@ import { getIdentity } from "./generateIdentity.js"
 import { getCtypeSchema } from "./ctypeSchema.js"
 import { getFullDid } from "./generateDid.js"
 
-import env from "./env.json" assert {type: "json"}
+import { config as envConfig } from 'dotenv'
+// import env from "./env.json" assert {type: "json"}
 
 
 export async function ensureStoredCtype() {
     // init
-    await Kilt.init({address: env.WSS_ADDRESS})
-    const mnemonic = env.ATTESTER_MNEMONIC
-    const did = env.ATTESTER_DID_URI
+    await Kilt.init({address: process.env.WSS_ADDRESS})
+    const mnemonic = process.env.ATTESTER_MNEMONIC
+    const did = process.env.ATTESTER_DID_URI
 
     // load identity
     const identity = await getIdentity(mnemonic)
@@ -46,12 +47,13 @@ export async function ensureStoredCtype() {
 
 }
 
-ensureStoredCtype()
-    .catch((e) => {
-        console.log("Error while checking on chain ctype", e)
-        process.exit(1)
-    })
-    .then((ctype) => {
-        console.log("Ctype: ", ctype)
-        process.exit()
-    })
+// envConfig()
+// ensureStoredCtype()
+//     .catch((e) => {
+//         console.log("Error while checking on chain ctype", e)
+//         process.exit(1)
+//     })
+//     .then((ctype) => {
+//         console.log("Ctype: ", ctype)
+//         process.exit()
+//     })

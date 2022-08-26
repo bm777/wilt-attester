@@ -1,13 +1,14 @@
 import * as Kilt from "@kiltprotocol/sdk-js"
 import { generateKeypairs } from "./generateKeypairs.js"
 import { getIdentity } from "./generateIdentity.js"
-import env from './env.json' assert {type: "json"};
+// import env from './env.json' assert {type: "json"};
+import { config as envConfig } from 'dotenv'
 
 
 export async function createFullDid() {
-    await Kilt.init({address: env.WSS_ADDRESS})
+    await Kilt.init({address: process.env.WSS_ADDRESS})
     const { api } = await Kilt.connect()
-    const mnemonic = env.ATTESTER_MNEMONIC
+    const mnemonic = process.env.ATTESTER_MNEMONIC
     console.log(mnemonic)
 
     // init keystore and load attester identity
@@ -31,13 +32,14 @@ export async function createFullDid() {
 }
 
 export async function getFullDid(didUri) {
-    await Kilt.init({address: env.WSS_ADDRESS})
+    await Kilt.init({address: process.env.WSS_ADDRESS})
     // const { api } = await Kilt.connect()
     const onChain = await Kilt.Did.FullDidDetails.fromChainInfo(didUri)
     if (!onChain) throw Error('failed to find on chain did: ${didUri}')
     return onChain
 }
 
+// envConfig()
 //  createFullDid()
 //     .catch((e) => {
 //         console.log("Error while creating atttester Did", e)
