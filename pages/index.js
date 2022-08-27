@@ -20,20 +20,26 @@ export default function Home() {
       setIsattester(!isAttester)
 
     }
+    function handleMessage() {
+      
+    };
 
-    // timer
-    
-    const timer = setInterval(async () => {
+    // fetcher
+    const fetchMessage = async () => {
       const base = "https://wilt-attester.vercel.app"
       const res = await fetch(base+"/api/attester/requests")
       const tickets = await res.json()
       setNb(tickets.tickets.length)
-    }, 5000)
+    }
+    
+
 
     // useEffect
     useEffect(() => {
       const url = getUrl(isAttester)
       setDid(url)
+
+      fetchMessage()
     }, [])
 
     
@@ -45,8 +51,8 @@ export default function Home() {
                 
                 <div className="">
                     <div>
-                      <div className="flex justify-end mr-10">
-                        <Image src={iconMessage} />
+                      <div className="flex justify-end mr-10 ">
+                        <Image src={iconMessage} onClick={handleMessage} className="hover:bg-teal-500 border-green-600 rounded-xl"/>
                         <div className="w-7 h-7 bg-indigo-600 rounded-full flex justify-center text-white font-bold text-lg">{nb}</div>
                       </div>
 
