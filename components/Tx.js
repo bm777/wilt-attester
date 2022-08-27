@@ -24,8 +24,10 @@ export default function Tx(props) {
             <p className="col-span-3 text-amber-400 font-light">{props.data._id}</p>
             <p className="text-slate-400 font-light">{props.data.name}</p>
             <p className="text-slate-400 font-light">{props.data.age}</p>
-            <button className="bg-indigo-700 rounded text-slate-300">approve</button>
-            <button className="bg-red-500 rounded text-slate-300">deny</button>
+            <button className="bg-indigo-500 rounded text-slate-300 border border-indigo-600
+                     hover:border hover:border-indigo-700 hover:text-white hover:bg-teal-800 ">approve</button>
+            <button className="bg-transparent rounded text-red-500 border border-red-500
+                     hover:border hover:border-red-700 hover:text-slate-300 hover:bg-red-500 ">deny</button>
         </div>
     )
 }
