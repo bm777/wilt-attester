@@ -12,8 +12,7 @@ export default function Authority() {
 
     // fetcher
     const fetchTx = async () => {
-      const base = "https://wilt-attester.vercel.app"
-      const res = await fetch(base+"/api/attester/requests")
+      const res = await fetch("/api/attester/requests")
       const tickets = await res.json()
       setTxs(tickets.tickets)
     }

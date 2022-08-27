@@ -29,8 +29,7 @@ export default function Home() {
 
     // fetcher
     const fetchMessage = async () => {
-      const base = "https://wilt-attester.vercel.app"
-      const res = await fetch(base+"/api/attester/requests")
+      const res = await fetch("/api/attester/requests")
       const tickets = await res.json()
       setNb(tickets.tickets.length)
     }
