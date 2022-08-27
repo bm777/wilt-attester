@@ -28,7 +28,6 @@ export default function Home() {
       const res = await fetch(base+"/api/attester/requests")
       const tickets = await res.json()
       setNb(tickets.tickets.length)
-      console.log("+++")
     }, 5000)
 
     // useEffect
