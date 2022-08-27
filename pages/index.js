@@ -29,7 +29,7 @@ export default function Home() {
       const tickets = await res.json()
       setNb(tickets.tickets.length)
       console.log("+++")
-    }, 1000)
+    }, 5000)
 
     // useEffect
     useEffect(() => {
