@@ -1,11 +1,14 @@
 import QRCode from "react-qr-code";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import env from "./api/attester/env.json" assert {type: "json"}
 import iconMessage from "../public/email.png"
 import Image from 'next/image'
 
 
 export default function Home() {
+
+  const router = useRouter()
 
     // the state
     const [isAttester, setIsattester] = useState(true)
@@ -21,7 +24,7 @@ export default function Home() {
 
     }
     function handleMessage() {
-      
+      router.push("/authority")
     };
 
     // fetcher
@@ -52,7 +55,7 @@ export default function Home() {
                 <div className="">
                     <div>
                       <div className="flex justify-end mr-10 ">
-                        <Image src={iconMessage} onClick={handleMessage} className="hover:bg-teal-500 border-green-600 rounded-xl"/>
+                        <Image src={iconMessage} onClick={handleMessage} className="hover:bg-gray-700 border-green-600 rounded-xl"/>
                         <div className="w-7 h-7 bg-indigo-600 rounded-full flex justify-center text-white font-bold text-lg">{nb}</div>
                       </div>
 
