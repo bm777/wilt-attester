@@ -44,13 +44,16 @@ export default function Authority() {
                     <div className="flex justify-center">
                       <p className="text-slate-500 text-xl font-light mt-5">Interact with Kilt blockchain to approve or deny requests.</p>
                     </div>
-                    {/* --------------------------------------------------------------------- */}
                     
-                    <div className="flex justify-center">
-                        {
+                    {/* --------------------------------------------------------------------- */}
+                    <div className="">
+                    <Tx key={"xxxxxx"} data={{_id: "ID", name: "NAME", age: "AGE", type: "TYPE"}}/>
+                      {
                           txs.map((tx, idx) => <Tx key={idx} data={tx}/>)
-                        }
+                      }
                     </div>
+                    
+                    
                     <div className="h-[100px]"></div>
                 </div>
             </div>
