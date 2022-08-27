@@ -12,7 +12,7 @@ export default function Authority() {
 
     // fetcher
     const fetchTx = async () => {
-      const res = await fetch("/api/attester/requests")
+      const res = await fetch("/api/attester/"+env.ATTESTER_DID_URI)
       const tickets = await res.json()
       setTxs(tickets.tickets)
     }
