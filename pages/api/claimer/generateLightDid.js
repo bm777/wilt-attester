@@ -3,7 +3,7 @@ import { mnemonicGenerate } from "@polkadot/util-crypto"
 
 import { generateKeypairs } from "./generateKeypairs.js"
 
-import env from "../../env.json" assert {type: "json"}
+import env from "../attester/env.json" assert {type: "json"}
 
 export async function generateLightDid(){
     await Kilt.init({address: env.WSS_ADDRESS})
@@ -28,12 +28,12 @@ export async function generateLightDid(){
     }
 }
 
-    generateLightDid()
-        .catch((e) => {
-            console.log("Error while setting up claimer DID", e)
-            process.exit(1)
-        })
-        .then(({lightDid, mnemonic}) => {
-            console.log("Claimer_mnemonic=", mnemonic)
-            console.log("claimer_did_uri=", lightDid.uri)
-        })
+    // generateLightDid()
+    //     .catch((e) => {
+    //         console.log("Error while setting up claimer DID", e)
+    //         process.exit(1)
+    //     })
+    //     .then(({lightDid, mnemonic}) => {
+    //         console.log("Claimer_mnemonic=", mnemonic)
+    //         console.log("claimer_did_uri=", lightDid.uri)
+    //     })

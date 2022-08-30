@@ -4,7 +4,7 @@ import { createClaim } from "./createClaim.js"
 import { generateKeypairs } from "./generateKeypairs.js"
 import { getCtypeSchema } from "./ctypeSchema.js"
 
-import env from "../../env.json" assert {type: "json"}
+import env from "../attester/env.json" assert {type: "json"}
 
 async function requestFromClaim(lightDid, keystore, claim) {
     const request = Kilt.RequestForAttestation.fromClaim(claim)
@@ -42,17 +42,17 @@ export async function generateRequest(claimAttributes, claimer_mnemonic){
 }
 
 
-import { generateLightDid } from "./generateLightDid.js"
-const claimer = await generateLightDid()
-generateRequest({
-    age: 22,
-    name: "bm777"
-}, claimer.mnemonic)
-    .catch((e) => {
-        console.log("Error while building request for attestation", e)
-        process.exit(1)
-    })
-    .then((req) => {
-        console.log(JSON.stringify(req, null, 2))
-        process.exit()
-    })
+// import { generateLightDid } from "./generateLightDid.js"
+// const claimer = await generateLightDid()
+// generateRequest({
+//     age: 22,
+//     name: "bm777"
+// }, claimer.mnemonic)
+//     .catch((e) => {
+//         console.log("Error while building request for attestation", e)
+//         process.exit(1)
+//     })
+//     .then((req) => {
+//         console.log(JSON.stringify(req, null, 2))
+//         process.exit()
+//     })
