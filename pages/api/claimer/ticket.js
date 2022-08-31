@@ -2,7 +2,7 @@ import { generateRequest } from "./generateRequest.js"
 
 export default async function handler(req, res) {
   try {
-    var _body = JSON.parse(req.body)
+    var _body = req.body //JSON.parse(req.body)
     
     // try {
     //   _body = JSON.parse(_body)
