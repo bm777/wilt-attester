@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     }
     console.log(_body)
 
-    var data = JSON.parse(JSON.parse(_body))
+    var data = _body
     const content = {name: data.name, age: data.age}
     
     const mnemonic = data.mnemonic
