@@ -1,24 +1,17 @@
 import { generateRequest } from "./generateRequest.js"
+import { generateLightDid } from "./generateLightDid.js"
 
 export default async function handler(req, res) {
   try {
     var _body = req.body //JSON.parse(req.body)
     
-    // try {
-    //   _body = JSON.parse(_body)
-    //   try {
-    //     _body = JSON.parse(_body)
-    //   } catch (error) {
-    //   }
-    // } catch (error) {
-      
-    // }
-    // console.log(_body)
+    const claimer = await generateLightDid()
+    
 
     var data = _body
     const content = {name: data.name, age: data.age}
     
-    const mnemonic = data.mnemonic
+    const mnemonic = claimer.mnemonic
     
     const request = await generateRequest(content, mnemonic)
     console.log(request)
