@@ -2,7 +2,19 @@ import { generateRequest } from "./generateRequest.js"
 
 export default async function handler(req, res) {
   try {
-    var _body = req.body
+    var _body = JSON.parse(req.body)
+    
+    try {
+      _body = JSON.parse(_body)
+      try {
+        _body = JSON.parse(_body)
+      } catch (error) {
+      }
+    } catch (error) {
+      
+    }
+    console.log(_body)
+
     var data = JSON.parse(JSON.parse(_body))
     const content = {name: data.name, age: data.age}
     
@@ -22,5 +34,17 @@ export default async function handler(req, res) {
 
   
   
+
+}
+
+
+function isJson(str) {
+
+  try {
+      JSON.parse(str);
+  } catch (e) {
+      return false;
+  }
+  return true;
 
 }
