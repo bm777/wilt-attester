@@ -5,6 +5,7 @@ const seed = Seed.new();
 export default async function handler(req, res) {
   const d = seed.mnemonic
   console.log(d.raw)
-  seed.kill()
+  
   res.status(200).json({ response: d.raw})
+  seed.kill()
 }
