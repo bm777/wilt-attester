@@ -9,12 +9,8 @@ export default async function handler(req, res) {
   // generate the request
   // const request = await generateRequest(body.content, body.mnemonic)
   console.log(content)
-  try {
-    
-  } catch (error) {
-    
-  }
+
   
-  res.status(200).json({ response: "ok"})
+  res.status(200).send(JSON.stringify({ response: "ok"}))
 
 }
