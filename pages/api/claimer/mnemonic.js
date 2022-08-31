@@ -1,8 +1,9 @@
 import Seed from "mnemonic-seed-js";
 
-const seed = Seed.new();
 
 export default async function handler(req, res) {
+  const seed = Seed.new();
+
   const d = seed.mnemonic
   console.log(d.raw)
   
