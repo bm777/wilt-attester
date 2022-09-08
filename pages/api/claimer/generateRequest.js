@@ -22,7 +22,7 @@ export async function generateRequest(claimAttributes, claimer_mnemonic){
 
     const keystore = new Kilt.Did.DemoKeystore()
     const keys = await generateKeypairs(keystore, claimer_mnemonic)
-
+    
     // lightDid in live again
     const lightDid = Kilt.Did.LightDidDetails.fromDetails({
         ...keys,
@@ -31,10 +31,13 @@ export async function generateRequest(claimAttributes, claimer_mnemonic){
             type: Kilt.VerificationKeyType.Sr25519
         }
     })
+    
 
     // claim creation
     const ctype = getCtypeSchema()
+    
     const claim = createClaim(lightDid, ctype, claimAttributes)
+    console.log(claim)
 
     // create request
     console.log("claimer -> create request")

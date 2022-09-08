@@ -4,7 +4,8 @@ import { generateLightDid } from "./generateLightDid.js"
 export default async function handler(req, res) {
   try {
     var _body = req.body //JSON.parse(req.body)
-    
+    var _body = JSON.parse(JSON.parse(req.body))
+
     const claimer = await generateLightDid()
     
 
