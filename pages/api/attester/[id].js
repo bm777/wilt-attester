@@ -12,9 +12,7 @@ export default async function handler(req, res) {
     } catch (error) {
       res.status(200).json({message: error})
     }
-    const flow = await attestingFlow(request)
 
-    res.status(200).json({ flow })
   }else{
     res.status(200).json({ message: "Provide a valid FullDID attester" })
   }
